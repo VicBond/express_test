@@ -17,9 +17,18 @@ app.get('/products/:id', (req, res, next) => {
   if(products[req.params.id]){
       res.send(products[req.params.id]);
   } else {
-      res.status(404).send('Products not found');
+      res.status(404).send('Product not found');
   }
 });
+
+app.get('/blog', (req, res, next) => {
+  res.redirect('/')
+});
+
+app.get('/downloadBook', (req, res, next) => {
+  res.download('./public/books.html');
+});
+
 
 bookRouter.get('/', (req, res) =>{
   res.send('Book');
