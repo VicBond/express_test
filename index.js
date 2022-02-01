@@ -49,7 +49,11 @@ bookRouter.get('/about', (req, res) => {
 });
 app.use('/book', bookRouter);
 
-
+//show an error
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(500).send(err.stack);
+});
 
 app.listen(5000, () => {
   console.log("It's started...", new Date());
