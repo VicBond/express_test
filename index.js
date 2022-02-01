@@ -3,6 +3,9 @@ const bookRouter = express.Router();
 const app = express(); //it's working
 const products = ['Apple', 'Google', 'Pinterest'];
 
+app.use(express.static('public'));
+app.use('/static', express.static(__dirname + '/public'));
+
 app.get('/', (req, res, next) => {
   res.send("It's working");
 });
@@ -26,7 +29,9 @@ app.get('/blog', (req, res, next) => {
 });
 
 app.get('/downloadBook', (req, res, next) => {
-  res.download('./public/books.html');
+  res.download('./public/books.html', err => {
+    console.log("File sent");
+  });
 });
 
 
