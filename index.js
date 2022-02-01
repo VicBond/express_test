@@ -64,6 +64,15 @@ app.get('/ejs', (req, res, next) => {
   });
 });
 
+// route for main hbs v
+app.get('/hbs', (req, res, next) => {
+  res.render('main.hbs', {
+    title: 'Products',
+    message: 'Products List',
+    products: products
+  });
+});
+
 
 
 bookRouter.get('/', (req, res) =>{
