@@ -44,6 +44,7 @@ app.get('/downloadBook', (req, res, next) => {
   });
 });
 
+// route for main pug v
 app.get('/main', (req, res, next) => {
   res.render('main', {
     title: 'Products',
@@ -51,6 +52,17 @@ app.get('/main', (req, res, next) => {
     products: products
   });
 });
+
+// route for main ejs v
+app.get('/ejs', (req, res, next) => {
+  res.render('main', {
+    title: 'Products',
+    message: 'Products List',
+    products: products
+  });
+});
+
+
 
 bookRouter.get('/', (req, res) =>{
   res.send('Book');
