@@ -43,6 +43,13 @@ app.get('/downloadBook', (req, res, next) => {
   });
 });
 
+app.get('/main', (req, res, next) => {
+  res.render('main', {
+    title: 'Products',
+    message: 'Products List',
+    products: products
+  });
+});
 
 bookRouter.get('/', (req, res) =>{
   res.send('Book');
