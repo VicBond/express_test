@@ -3,6 +3,9 @@ const bookRouter = express.Router();
 const app = express(); //it's working
 const products = ['Apple', 'Google', 'Pinterest'];
 
+app.set('view engine', 'pug');
+app.set('views', './views');
+
 app.use((req, res, next) => {
   console.log('Date', new Date(), 'Method', req.method, 'URL', req.originalUrl, 'IP', req.ip);
   next();
