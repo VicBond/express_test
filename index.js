@@ -3,6 +3,11 @@ const bookRouter = express.Router();
 const app = express(); //it's working
 const products = ['Apple', 'Google', 'Pinterest'];
 
+app.use((req, res, next) => {
+  console.log('Date', new Date(), 'Method', req.method, 'URL', req.originalUrl, 'IP', req.ip);
+  next();
+});
+
 app.use(express.static('public'));
 app.use('/static', express.static(__dirname + '/public'));
 
@@ -13,6 +18,7 @@ app.get('/', (req, res, next) => {
 app.get('/products', (req, res, next) => {
   // console.log('Page', req.query.page);
   res.send(products);
+  // next();
   // res.json({products});
 });
 
